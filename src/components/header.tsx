@@ -7,8 +7,9 @@ import { useNavigate } from "react-router-dom";
 function DefaultHeader() {
   const navigate = useNavigate();
   const [profile, setProfile] = useState<null | string>(null); // 현재 프로필 값
-  const [loginState, setLoginState] = confirmUser(); // 현재 로그인 상태(uid)
+  const [loginState] = confirmUser(); // 현재 로그인 상태(uid)
   const [profileState, setProfileState] = useState(false);
+  const [user, setUser] = useState<any | null>(null); // 로그인된 유저 정보
 
   const logout = async () => {
     try {
@@ -31,6 +32,7 @@ function DefaultHeader() {
           const userData = docSnapshot.data();
           if (!userData) return;
           setProfile(userData.profile);
+          setUser(userData);
           return userData;
         }
       } catch (e) {
@@ -63,9 +65,10 @@ function DefaultHeader() {
       ) : null}
       {profileState ? (
         <ProfileBox>
-          <h3></h3>
+          <h3>{user.nickname ? user.nickname : ""}</h3>
           <p>
-            <strong>uid</strong> sdfsdfsdfsdfs
+            <strong>uid</strong>
+            {loginState}
           </p>
           {profile ? <img src={profile} alt="유저 프로필" /> : null}
           <LogoutBtn onClick={logout}>로그아웃</LogoutBtn>
@@ -126,6 +129,8 @@ const ProfileBox = styled.div`
   & > p {
     font-weight: 600;
     color: #5e5e5e;
+    white-space: pre-wrap;
+    word-break: break-all;
   }
 
   & > img {

@@ -57,6 +57,7 @@ function Home() {
           if (!userData) return;
           setProfile(userData.profile);
           setUser(userData);
+          console.log(userData);
         }
       } catch (e) {
         console.error(e);
@@ -105,7 +106,7 @@ function Home() {
           ) : null}
           {profileState ? (
             <ProfileLayout>
-              <h3>{user.nickname ? user.nickname : "흠"}</h3>
+              <h3>{user.nickname ? user.nickname : ""}</h3>
               <p>
                 <strong>uid </strong>
                 {loginState}
@@ -198,7 +199,7 @@ function Home() {
 
             return (
               <Post>
-                <img src="/images/default_thumbnail.jpg" />
+                <img src="/images/default_thumbnail.jpg" alt="썸네일" />
                 <div>
                   <h5>{x.title}</h5>
                   <p>{x.content}</p>
