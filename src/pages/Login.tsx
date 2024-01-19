@@ -99,6 +99,7 @@ const LoginBox = styled.div`
   min-height: 400px;
   border-radius: 20px;
   overflow: hidden;
+  z-index: 1;
 `;
 
 const LoginBoxBtns = styled.div<{ $selected: String }>`
