@@ -8,7 +8,8 @@
       "@lib/*": ["lib/*"],
       "@pages/*": ["pages/*"],
       "@utils/*": ["utils/*"],
-      "@states/*": ["states/*"]
+      "@states/*": ["states/*"],
+      "@hooks/*": ["hooks/*"]
     },
     "target": "es5",
     "lib": ["dom", "dom.iterable", "esnext"],
@@ -17,7 +18,7 @@
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
     "strict": true,
-    "forceConsistentCasingInFileNames": false,
+    "forceConsistentCasingInFileNames": true,
     "noFallthroughCasesInSwitch": true,
     "module": "esnext",
     "moduleResolution": "node",
