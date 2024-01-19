@@ -57,7 +57,6 @@ function Home() {
           if (!userData) return;
           setProfile(userData.profile);
           setUser(userData);
-          console.log(userData);
         }
       } catch (e) {
         console.error(e);
