@@ -1,0 +1,7 @@
+.carouselSlide {
+  height: 100% !important;
+}
+
+.carouselSlide ul {
+  display: none !important;
+}
